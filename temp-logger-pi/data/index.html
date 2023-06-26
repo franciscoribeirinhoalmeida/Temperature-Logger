@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ESP32 IOT DASHBOARD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="all.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <header class="topnav">
+        <h1>ESP TEMPERATURE LOGGER</h1>
+    </header>
+    <main class="content">
+        <div class="card-grid">
+            <div class="card open" onclick="toggleCard(this)">
+                <h3>Real Time Temperature</h3>
+                <div class="card-content" onclick="event.stopPropagation()">
+                    <canvas id="gauge-temperature"></canvas>
+                </div>
+            </div>
+            <div class="card open" onclick="toggleCard(this)">
+
+                <div class="card-content" onclick="event.stopPropagation()">
+                    <div class="date-input">
+                        <label for="start-date">Start Date and Time:</label>
+                        <input type="datetime-local" id="start-date">
+                    </div>
+                    <div class="date-input">
+                        <label for="end-date">End Date and Time:</label>
+                        <input type="datetime-local" id="end-date">
+                    </div>
+                    <button id="submitDatesButton" style="margin-bottom: 20px;">Submit</button>
+                    <span class="empty-space"></span>
+                    <button id="wipeButton" onclick="">WIPE MEMORY</button>
+                </div>
+            </div>
+
+
+
+            <div id="chart-card" class="card" onclick="toggleCard(this)">
+                <h3>Chart Temperatures</h3>
+                <div class="card-content" onclick="event.stopPropagation()">
+                    <div class="chart-container">
+                        <canvas id="myChart" width="600" height="400"></canvas>
+                    </div>
+                    <span class="empty-space"></span>
+                    <table id="my-table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Date and Time</th>
+                                <th>Temperature</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Table body rows will be added dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </main>
+    <footer class="footer">
+        <p style="font-size: 11px;">Francisco Ribeirinho Almeida</p>
+    </footer>
+
+
+
+
+    <script src="tempgauge.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- <script src="chart.js"></script> -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
